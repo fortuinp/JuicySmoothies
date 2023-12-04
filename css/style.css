@@ -1,7 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Concert+One&display=swap');
 *,
 *::after,
 *::before{
     padding:0;
     margin:0;
     box-sizing: border-box;
+}
+body{
+    font-family: 'Anton', sans-serif;
+
+}
+img[alt="logo"]{
+    width:5rem;
+    height: 5rem;
+  }
+
+  footer{
+    background-color: #224952;
+    color: white;
+    text-align: center;
+    
+    
+  }
+  /* .imggg{
+    
+    background-image: url("https://i.postimg.cc/K8dh82Xf/61783418-l-1024x683.jpg");
+    background-repeat: no-repeat;
+    object-position: center;
+    background-size: contain;
+    height: 800px; 
+ 
+  }*/
+  span{
+    display: block;
+    color: #AA2222;
+  }
+  #JS{
+    color:#224952 ;
+  }
+
+main{
+    background-color: rgb(216, 216, 228);
+}
+/* #home{
+    background-color: rgb(216, 216, 228);
+    background-image: url("https://i.postimg.cc/nLRLG1zr/61783418-l-1024x683-removebg-preview.png");
+    background-repeat: no-repeat;
+    object-position: center;
+    object-fit: cover;
+    background-size: cover;
+    aspect-ratio: 1/1; 
+    font-family: 'Anton', sans-serif;
+    font-size: 6rem;
+} */
+#home{
+background-image: url(https://i.postimg.cc/nLRLG1zr/61783418-l-1024x683-removebg-preview.png);
+background-repeat: no-repeat;
+aspect-ratio: 1/1;
+background-size:auto;
+}
+
+#about{
+    /* background-color: rgb(216, 216, 228); */
+    /* margin-top: 300px; */
+
+    color:#224952 ;
+    font-family: 'Concert One', sans-serif;
+    
+}
+h2{
+    text-align: center;
+    color: #AA2222;
+    font-size: 3rem;
+}
+p{
+    font-size: 1.5rem;
+}
+#aboutpic{
+width: 10rem;
+height: 10rem;
+}
+h3{
+    color: white;
 }
