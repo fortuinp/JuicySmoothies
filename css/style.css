@@ -8,16 +8,20 @@
     box-sizing: border-box;
 }
 body{
-    font-family: 'Anton', sans-serif;
+    background-color: rgb(216, 216, 228);
 
 }
 img[alt="logo"]{
     width:5rem;
     height: 5rem;
   }
+  /* img[alt="products"]{
+    width: 5rem;
+    height: 5rem;
+  } */
 
   footer{
-    background-color: #224952;
+    background-color: #AA2222;
     color: white;
     text-align: center;
     
@@ -41,25 +45,28 @@ img[alt="logo"]{
   }
 
 main{
-    background-color: rgb(216, 216, 228);
+    background-color:rgb(216, 216, 228);
+
 }
-/* #home{
-    background-color: rgb(216, 216, 228);
+/* #home{ */
+    /* background-color: rgb(216, 216, 228);
     background-image: url("https://i.postimg.cc/nLRLG1zr/61783418-l-1024x683-removebg-preview.png");
     background-repeat: no-repeat;
-    object-position: center;
-    object-fit: cover;
-    background-size: cover;
-    aspect-ratio: 1/1; 
+    /* object-position: center;
+    object-fit: cover; */
+    /* background-size: contain;
+    aspect-ratio: 1/1;  */
+    /* font-family: 'Anton', sans-serif;
     font-family: 'Anton', sans-serif;
-    font-size: 6rem;
-} */
-#home{
+    font-size: 3rem;  */
+
+
+/* #home{
 background-image: url(https://i.postimg.cc/nLRLG1zr/61783418-l-1024x683-removebg-preview.png);
 background-repeat: no-repeat;
 aspect-ratio: 1/1;
 background-size:auto;
-}
+} */
 
 #about{
     /* background-color: rgb(216, 216, 228); */
@@ -83,4 +90,29 @@ height: 10rem;
 }
 h3{
     color: white;
+}
+#btn{
+    width: 5rem;
+    height:2rem;
+}
+#search{
+    width: 8rem;
+    height: 2rem;
+}
+#home{
+    background:url('https://i.postimg.cc/nLRLG1zr/61783418-l-1024x683-removebg-preview.png') no-repeat;
+    /* You just have to change the value of background-size */
+    background-size: contain;
+    background-position: center;
+    
+    /* mix-blend-mode: luminosity; */
+    font-family: 'Anton', sans-serif;
+    font-family: 'Anton', sans-serif;
+    font-size: 4rem; 
+    background-color: rgb(216, 216, 228);
+
+}
+.card-img-top{
+    width: 8rem;
+    height: 10rem;
 }
