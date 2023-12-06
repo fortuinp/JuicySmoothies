@@ -29,19 +29,19 @@ let Smoothies = JSON.parse(localStorage.getItem("smoothies"))
           url: "https://i.postimg.cc/pLfxnsKK/240-F-60195257-Yb0t1-Gl-L6-Yhb-C0c0bp-Nt06-To-SMAsdg82.jpg",
         },
         {
-          id: 4,
+          id: 3,
           flavour: "banana",
           price: 48,
           url: "https://i.postimg.cc/P55JTGgP/240-F-60195267-o-Usx-A2-V7-UIwng-JNOi2ss-MOSEu-Oj-LMRC1.jpg",
         },
         {
-          id: 5,
+          id: 3,
           flavour: "kiwi",
           price: 25,
           url: "https://i.postimg.cc/bJcqG4B0/240-F-62583240-YUkve-XVAOZC9-Kupg0r-MRXl-C3-S6-AJ2sa-R.jpg",
         },
         {
-          id: 6,
+          id: 5,
           flavour: "orange",
           price: 97,
           url: "https://i.postimg.cc/W1xvKQTR/240-F-63337375-f-KOc-YM95-ZH2-HGld-Jc7nv-Oquxuv5x-TPiz.jpg",
@@ -168,7 +168,7 @@ function sortitems() {
             <div class="card-body">
                 <h5 class="card-title">${item.flavour}</h5>
                 <p class="card-text">R${item.price}</p>
-                <button href="#" class="btn btn-secondary" onclick='addToCart(${JSON.stringify(item)})'>Add to Cart</button>            </div>`;
+                <button href="#" class="btn btn-secondary" onclick='addToCart(${JSON.stringify(item)})'>Add to Cart</button></div>`;
   });
 }
 
