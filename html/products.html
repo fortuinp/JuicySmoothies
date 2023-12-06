@@ -51,13 +51,16 @@
         <section class="container" id="products">
             <h2>Treats</h2>
             <div class="row gap-5 mb-2">
-               
-            <input type="text" placeholder="search product" id="search">
-             <button id="btn" type="button" data-sort>Sort</button>
+               <div class="col">
+                   <input type="text" placeholder="search product" data-search>
+               </div>
+               <div class="col">
+                   <button id="btn" type="button" onclick="sortitems()" data-sort>Sort</button>
+               </div>
                 
             </div>
           </div>
-            <div class="row gap-5 mb-5 ms-5" id="card" data-smoothies>
+            <div class="row gap-5 mb-5 ms-5" id="card"  data-smoothies>
 
             </div>
 
