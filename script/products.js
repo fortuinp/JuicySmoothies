@@ -48,115 +48,58 @@ let Smoothies = JSON.parse(localStorage.getItem("smoothies"))
         },
       ])
     );
-
-// // Products page - sample data on a array saved in local storage
-// let smoothies =  JSON.parse(localStorage.getItem("smoothies")) ?
-// JSON.parse(localStorage.getItem("smoothies")) :
-// localStorage.setItem("smoothies",
-// JSON.stringify(Smoothies));
-
-//     let smoothiesWrapper = document.querySelector("[data-smoothies]");
-//     smoothiesWrapper.innerHtml = ""
-//     if(Smoothies){
-//     // Loop through smoothies array
-// Loop through smoothies array
-
-let smoothiesWrapper = document.querySelector("[data-smoothies]");
+let smoothiesWrapper = document.querySelector('[data-smoothies]');
 
 function displayProducts(data) {
-  smoothiesWrapper.innerHtml = "";
-  if (data) {
-    data.forEach((item) => {
-      smoothiesWrapper.innerHTML += `
-        <div class="card" style="width: 15rem; height:20rem;">
-            <img src="${item.url}" class="card-img-top" alt="products" >
-            <div class="card-body">
-                <h5 class="card-title">${item.flavour}</h5>
-                <p class="card-text">R${item.price}</p>
-                <button href="#" class="btn btn-secondary" onclick='addToCart(${JSON.stringify(item)})'>Add to Cart</button>
-            </div>
-        </div>
-        `;
-    })
-    ;
-    addToCart()
-  }
-  // else {
-  //     smoothiesWrapper.innerHtml = "Product not found"
-  // }
+    try{
+        smoothiesWrapper.innerHtml = "";
+        if (data) {
+            data.forEach((item) => {
+                smoothiesWrapper.innerHTML += `
+                <div class="card" style="width: 15rem; height:20rem;">
+                    <img src="${item.url}" class="card-img-top" alt="${item.flavour}" >
+                    <div class="card-body">
+                        <h5 class="card-title">${item.flavour}</h5>
+                        <p class="card-text">R${item.price}</p>
+                        <button href="#" class="btn btn-secondary" onclick='addToCart(${JSON.stringify(
+                            item
+                        )})'>Add to Cart</button>
+                    </div>
+                </div>
+                `
+          })
+        }else {
+            smoothiesWrapper.innerHtml = "Item not found";
+        }
+    }catch(e) {
+        smoothiesWrapper.innerHtml = "Try again later";
+    }
 }
-
 displayProducts(Smoothies);
-
-//     try{
-//         let searchWithFlavour = inputSearch.value;
-//         let getSmoothies =
-//             Smoothies.filter(
-//                 item => {
-//                     return item.flavour.toLowerCase().
-//                     includes(searchWithFlavour)
-//                 })
-//         displayProducts(getSmoothies)
-//         if(!searchWithFlavour) {
-//             displayProducts(Smoothies)
-//         }
-//     }catch(e) {
-//         smoothiesWrapper.innerHtml = "Please try again"
-//     }
-// }
 
 let inputSearch = document.querySelector("[data-search]");
 
 inputSearch.addEventListener("keyup", () => {
   try {
+    if(!inputSearch.value) displayProducts(Smoothies)
     let itemFound = Smoothies.filter((item) => {
       return item.flavour
         .toLowerCase()
         .includes(inputSearch.value.toLowerCase());
     });
-    if (itemFound) {
-      smoothiesWrapper.innerHtml = "";
-      //
-      itemFound.forEach((data) => {
-        smoothiesWrapper.innerHTML = `
-            <div class="card" style="width: 15rem; height:20rem;">
-            <img src="${data.url}" class="card-img-top" alt="products" >
-            <div class="card-body">
-                <h5 class="card-title">${data.flavour}</h5>
-                <p class="card-text">R${data.price}</p>
-                <button href="#" class="btn btn-secondary" onclick='addToCart(${JSON.stringify(item)})'>Add to Cart</button>            </div>
-        </div>`;
-      });
-    }else {
-        smoothiesWrapper.innerHtml = "Item was not found";
+    displayProducts(itemFound);
+    if (!itemFound) {
+        smoothiesWrapper.innerHtml = "Product is not available";
     }
-    if(!inputSearch.value) displayProducts(Smoothies)
+    
   } catch (e) {
-    ("Please try again late");
+    smoothiesWrapper.innerHtml = "Please contact Pinda (admin), for assistance";
   }
 });
 
-// document.querySelector('[data-sort]').addEventListener('click',()=>{
-//     try{
-//         let sortedarray =Smoothies.sort((item1,item2)=>{
-//             return item2.price - item1.price
-//         })
-//         displayProducts(sortedarray)
-//         }catch(e){
-//             'iiii'
-//         }
-
 function sortitems() {
   let sortedarray = Smoothies.sort((item1, item2) => {
-      //
-      
-      
-      
- 
-      
-      
-      
-      console.log(item1, item2);
+    console.log(item1, item2);
     return item1.price - item2.price;
   });
 
@@ -168,23 +111,19 @@ function sortitems() {
             <div class="card-body">
                 <h5 class="card-title">${item.flavour}</h5>
                 <p class="card-text">R${item.price}</p>
-                <button href="#" class="btn btn-secondary" onclick='addToCart(${JSON.stringify(item)})'>Add to Cart</button></div>`;
+                <button href="#" class="btn btn-secondary" onclick='addToCart(${JSON.stringify(
+                  item
+                )})'>Add to Cart</button></div>`;
   });
 }
 
 document.querySelector("[data-sort]").addEventListener("click", sortitems);
 
-//    inputSearch.addEventListener('input',searchitems)
-
-//     Smoothies.sort(price)
-
-// }
-
-let cart = []
+let cart = JSON.parse(localStorage.getItem("checkout")) || [];
 
 function addToCart(item) {
-    if(item) {
-        cart.push(item)
-        localStorage.setItem('checkout', JSON.stringify(cart))
-    }
+  if (item) {
+    cart.push(item);
+    localStorage.setItem("checkout", JSON.stringify(cart));
+  }
 }
