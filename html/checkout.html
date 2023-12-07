@@ -45,8 +45,50 @@
       <section class="container" id="checkout">
         <h2>About Juicy Smoothies</h2>
     </section>
-<main class="container-fluid vh-100" data-checkout>
+<main class="container-fluid vh-100" >
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        
+        <th scope="col">Flavour</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Price</th>
+        <th scope="col">Amount</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+      <tbody id="data-table-checkout">
 
+       
+      </tbody>
+    </table>
+    <button class="clear">clear</button>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  Purchase
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel"> Thank you</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Thank you for shopping with us
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+     
+      </div>
+    </div>
+  </div>
+</div>
+    
+</div>
 </main>
 <footer class="container-fluid" >
     <h3 id="Curryearr" data-footer> </h3>
@@ -58,3 +100,4 @@
     <script src="../script/checkout.js"></script>
 </body>
 </html>
+

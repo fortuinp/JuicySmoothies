@@ -2,25 +2,35 @@
 let yr= new Date().getFullYear();
 
 document.getElementById('Curryearr').textContent= "Juicy Smoothies est."+yr
+//get from cart
+let checks= document.getElementById('data-table-checkout')
+let checkeditem=JSON.parse(localStorage.getItem("checkout"))
 
-function display() {
-    let checkeditem=JSON.parse(localStorage.getItem("checkout"))
-    console.log(checkeditem);
-    let checks= document.querySelector('[data-checkout]')
-    checks.innerHtml = "";
-    checkeditem.forEach((item) => {
-        console.log(item.flavour);
-        checks.innerHTML += 
+
+    let cartproducts= Object.groupBy(checkeditem,item=> item.id)
+  
+    if (cartproducts){
+        for (let key in cartproducts) {
+            console.log(cartproducts[key][0].flavour);
+            console.log(cartproducts[key][0].length);
+            checks.innerHTML +=
+            `<tr>
+            <td>${cartproducts[key][0].flavour}</td>
+            <td>${cartproducts[key].length}</td>
+            <td>${cartproducts[key][0].price}</td>
+            <td>R${eval(`${cartproducts[key][0].price}*${cartproducts[key].length}`)}</td>
+            </tr>
+            `
+        }
+    }     
         
-        `
-            <h1>${item.price}</h1>
-        `
-})}
+    function clearCart() {
+        localStorage.removeItem("checkout")
+        checks.innerHTML=""
+    }
+    document.querySelector('.clear').addEventListener('click',clearCart)
 
-display()
-
-// let checkitem =  JSON.parse(localStorage.getItem("checkout")) ?
-// JSON.parse(localStorage.getItem("checkout")) :
-// localStorage.setItem("checkout",
-// JSON.stringify(checkout));
-// console.log(checkitem);
+    // function purchase() {
+    //   alert('Thank you for shopping with Juicy Smoothies') 
+    // }
+    // document.querySelector('.purchase').addEventListener('click',purchase)
