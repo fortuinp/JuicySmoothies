@@ -107,7 +107,7 @@ function sortitems() {
   sortedarray.forEach((item) => {
     smoothiesWrapper.innerHTML += `
      <div class="card" style="width: 15rem; height:20rem;">
-            <img src="${item.url}" class="card-img-top" alt="products" >
+            <img src="${item.url}" class="card-img-top" alt="products" loading=lazy >
             <div class="card-body">
                 <h5 class="card-title">${item.flavour}</h5>
                 <p class="card-text">R${item.price}</p>
@@ -127,3 +127,7 @@ function addToCart(item) {
     localStorage.setItem("checkout", JSON.stringify(cart));
   }
 }
+
+let totalamount= []
+
+

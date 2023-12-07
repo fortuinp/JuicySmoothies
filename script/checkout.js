@@ -20,6 +20,7 @@ let checkeditem=JSON.parse(localStorage.getItem("checkout"))
             <td>${cartproducts[key][0].price}</td>
             <td>R${eval(`${cartproducts[key][0].price}*${cartproducts[key].length}`)}</td>
             </tr>
+            
             `
         }
     }     

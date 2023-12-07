@@ -43,29 +43,38 @@
         </div>
       </nav>
       <section class="container" id="checkout">
-        <h2>About Juicy Smoothies</h2>
+        <h2>Checkout</h2>
     </section>
 <main class="container-fluid vh-100" >
 <div class="container">
-  <table class="table">
+  <table class="table m-0 mx-1 mb-2">
     <thead>
       <tr>
         
-        <th scope="col">Flavour</th>
-        <th scope="col">Quantity</th>
-        <th scope="col">Price</th>
-        <th scope="col">Amount</th>
-        <th scope="col"></th>
+        <th scope="col-8">Flavour</th>
+        <th scope="col-8">Quantity</th>
+        <th scope="col-8">Price</th>
+        <th scope="col-8">Amount</th>
+        
       </tr>
     </thead>
-      <tbody id="data-table-checkout">
+    <tbody id="data-table-checkout">
+      
+      
+    </tbody>
+    <tr>
+      <th>total amount</th>
+      <th></th>
+      <th></th>
+      <th id="totalAmount"></th>
 
-       
-      </tbody>
-    </table>
-    <button class="clear">clear</button>
+    </tr>
+  </table>
+  
+
+    <button id="btnclear" class="clear" >clear</button>
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+<button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="btnpurchase">
   Purchase
 </button>
 

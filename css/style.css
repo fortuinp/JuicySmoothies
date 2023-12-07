@@ -80,6 +80,7 @@ h2{
     text-align: center;
     color: #AA2222;
     font-size: 3rem;
+    font-family: 'Concert One', sans-serif;
 }
 p{
     font-size: 1.5rem;
@@ -100,7 +101,7 @@ h3{
     height: 2rem;
 }
 #home{
-    background:url('https://i.postimg.cc/nLRLG1zr/61783418-l-1024x683-removebg-preview.png') no-repeat;
+    background:url('https://i.postimg.cc/nLRLG1zr/61783418-l-1024x683-removebg-preview.png' ) no-repeat;
     /* You just have to change the value of background-size */
     background-size: contain;
     background-position: center;
@@ -117,16 +118,25 @@ h3{
     height: 10rem;
 }
 
-.submit{
-    width: 365px;
-    height: 40px;
+
+#btncontact{
+    background-color: #AA2222;
+}
+#btnclear{
+    background-color:#AA2222;
+    width: 5rem;
+    height: 2.3rem;
     border-radius: 6px;
      margin-bottom: 10px; 
-    background-color: #468079;}
-.submit:hover{
-    background-color: #2980b9;
 }
-#texta{
-    width: 23.1rem ;
-    height: 10rem ;
-    background-color:#E8DED1;}
+#btnpurchase{
+    background-color: gray;
+    width: 5rem;
+    height: 2.3rem;
+    border-radius: 6px;
+     margin-bottom: 10px; 
+
+}
+/* :is(#treats,#contact,#checkout,#products){
+    font-family: 'Concert One', sans-serif;
+} */
