@@ -1,4 +1,3 @@
+let yr = new Date().getFullYear();
 
-let yr= new Date().getFullYear();
-
-document.getElementById('Curryearr').textContent= "Juicy Smoothies est."+yr
+document.getElementById("Curryearr").textContent = "Juicy Smoothies est." + yr;
