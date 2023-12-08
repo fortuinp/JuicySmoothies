@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-secondary ">
+    <nav class="navbar navbar-expand-lg bg-body-secondary mb-5 ">
         <div class="container-fluid">
             <a class="navbar-brand" href="./index.html">
                 <img src="https://i.postimg.cc/qqPCZ2Td/download-6.jpg" alt="logo" loading="lazy"
@@ -50,23 +50,19 @@
     <main class="container-fluid">
         <section class="container" id="products">
             <h2>Treats</h2>
-            <div class="row gap-5 mb-2">
-               <div class="col">
-                   <input type="text" placeholder="search product" data-search>
-               </div>
-               <div class="col">
-                   <button id="btn" type="button" onclick="sortitems()" data-sort>Sort</button>
-               </div>
+            <div class="row gap-4 mb-2 mx-5 ms-5">
+                <input id="search" type="text" placeholder="search product" data-search>
+                <button id="btn" type="button" onclick="sortitems()" data-sort>Sort</button>
+
             </div>
             <div class="row gap-5 mb-5 ms-5" data-smoothies>
 
             </div>
-
         </section>
     </main>
 
 
-    <footer class="container-fluid" >
+    <footer class="container-fluid">
         <h3 id="Curryearr" data-footer> </h3>
     </footer>
 

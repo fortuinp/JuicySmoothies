@@ -1,17 +1,17 @@
-// products
-//https://i.postimg.cc/j5wDFRs0/240-F-59738474-5-NTSry-Zt-Ri-Zejj4d-Upj-Qhssiga-Erqinl-removebg-preview.png...red
-//https://i.postimg.cc/K8dh82Xf/61783418-l-1024x683.jpg ..initial
-//https://i.postimg.cc/zDFn0N5Q/240-F-59738474-5-NTSry-Zt-Ri-Zejj4d-Upj-Qhssiga-Erqinl.jpg strawberry
-//https://i.postimg.cc/pLfxnsKK/240-F-60195257-Yb0t1-Gl-L6-Yhb-C0c0bp-Nt06-To-SMAsdg82.jpg choc chip
-//https://i.postimg.cc/P55JTGgP/240-F-60195267-o-Usx-A2-V7-UIwng-JNOi2ss-MOSEu-Oj-LMRC1.jpg banana
-//https://i.postimg.cc/bJcqG4B0/240-F-62583240-YUkve-XVAOZC9-Kupg0r-MRXl-C3-S6-AJ2sa-R.jpg kiwi
-//https://i.postimg.cc/W1xvKQTR/240-F-63337375-f-KOc-YM95-ZH2-HGld-Jc7nv-Oquxuv5x-TPiz.jpg orange
-//https://i.postimg.cc/sx5mjGZ9/240-F-63637648-Ge5ay-KEBx5-Gkr-FNg6g-Iaig-Lw-Hnqla8th.jpg red orange
+// // products
+// //https://i.postimg.cc/j5wDFRs0/240-F-59738474-5-NTSry-Zt-Ri-Zejj4d-Upj-Qhssiga-Erqinl-removebg-preview.png...red
+// //https://i.postimg.cc/K8dh82Xf/61783418-l-1024x683.jpg ..initial
+// //https://i.postimg.cc/zDFn0N5Q/240-F-59738474-5-NTSry-Zt-Ri-Zejj4d-Upj-Qhssiga-Erqinl.jpg strawberry
+// //https://i.postimg.cc/pLfxnsKK/240-F-60195257-Yb0t1-Gl-L6-Yhb-C0c0bp-Nt06-To-SMAsdg82.jpg choc chip
+// //https://i.postimg.cc/P55JTGgP/240-F-60195267-o-Usx-A2-V7-UIwng-JNOi2ss-MOSEu-Oj-LMRC1.jpg banana
+// //https://i.postimg.cc/bJcqG4B0/240-F-62583240-YUkve-XVAOZC9-Kupg0r-MRXl-C3-S6-AJ2sa-R.jpg kiwi
+// //https://i.postimg.cc/W1xvKQTR/240-F-63337375-f-KOc-YM95-ZH2-HGld-Jc7nv-Oquxuv5x-TPiz.jpg orange
+// //https://i.postimg.cc/sx5mjGZ9/240-F-63637648-Ge5ay-KEBx5-Gkr-FNg6g-Iaig-Lw-Hnqla8th.jpg red orange
 
 let yr = new Date().getFullYear();
 
 document.getElementById("Curryearr").textContent = "Juicy Smoothies est." + yr;
-let Smoothies = JSON.parse(localStorage.getItem("smoothies"))
+let smoothies = JSON.parse(localStorage.getItem("smoothies"))
   ? JSON.parse(localStorage.getItem("smoothies"))
   : localStorage.setItem(
       "smoothies",
@@ -48,76 +48,138 @@ let Smoothies = JSON.parse(localStorage.getItem("smoothies"))
         },
       ])
     );
-let smoothiesWrapper = document.querySelector('[data-smoothies]');
 
-function displayProducts(data) {
-    try{
-        smoothiesWrapper.innerHtml = "";
-        if (data) {
-            data.forEach((item) => {
-                smoothiesWrapper.innerHTML += `
-                <div class="card" style="width: 15rem; height:20rem;">
-                    <img src="${item.url}" class="card-img-top" alt="${item.flavour}" >
-                    <div class="card-body">
-                        <h5 class="card-title">${item.flavour}</h5>
-                        <p class="card-text">R${item.price}</p>
-                        <button href="#" class="btn btn-secondary" onclick='addToCart(${JSON.stringify(
-                            item
-                        )})'>Add to Cart</button>
-                    </div>
-                </div>
-                `
-          })
-        }else {
-            smoothiesWrapper.innerHtml = "Item not found";
-        }
-    }catch(e) {
-        smoothiesWrapper.innerHtml = "Try again later";
+let smoothiesWrapper = document.querySelector('[data-smoothies]')
+let searchInput = document.querySelector('[data-search]')
+let sortingBtn = document.querySelector('[data-sort]')
+
+function displaySmoothies(data) {
+  smoothiesWrapper.innerHTML = ""
+  try{
+    if(data) {
+      data.forEach( item=> {
+        smoothiesWrapper.innerHTML +=`
+        <div class="card"">
+          <img src="${item.url}" class="card-img-top" alt="${item.flavour}">
+          <div class="card-body">
+            <h5 class="card-title">${item.flavour}</h5>
+            <p class="card-text">R${item.price}</p>
+            <a type="button" class="btn btn-primary" onclick='addToCart(${JSON.stringify(item)})'>Add to cart</a>
+          </div>
+        </div>
+        `
+      })
+    }else {
+      smoothiesWrapper.innerHTML = `
+      <div class="d-flex justify-content-center">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+      `
     }
-}
-displayProducts(Smoothies);
-
-let inputSearch = document.querySelector("[data-search]");
-
-inputSearch.addEventListener("keyup", () => {
-  try {
-    if(!inputSearch.value) displayProducts(Smoothies)
-    let itemFound = Smoothies.filter((item) => {
-      return item.flavour
-        .toLowerCase()
-        .includes(inputSearch.value.toLowerCase());
-    });
-    displayProducts(itemFound);
-    if (!itemFound) {
-        smoothiesWrapper.innerHtml = "Product is not available";
-    }
-    
-  } catch (e) {
-    smoothiesWrapper.innerHtml = "Please contact Pinda (admin), for assistance";
+  }catch(e) {
+    smoothiesWrapper.innerHTML = "Please contact our admin (Pinda)"
   }
-});
-
-function sortitems() {
-  let sortedarray = Smoothies.sort((item1, item2) => {
-    console.log(item1, item2);
-    return item1.price - item2.price;
-  });
-
-  smoothiesWrapper.innerHTML = "";
-  sortedarray.forEach((item) => {
-    smoothiesWrapper.innerHTML += `
-     <div class="card" style="width: 15rem; height:20rem;">
-            <img src="${item.url}" class="card-img-top" alt="products" loading=lazy >
-            <div class="card-body">
-                <h5 class="card-title">${item.flavour}</h5>
-                <p class="card-text">R${item.price}</p>
-                <button href="#" class="btn btn-secondary" onclick='addToCart(${JSON.stringify(
-                  item
-                )})'>Add to Cart</button></div>`;
-  });
 }
+displaySmoothies(smoothies)
 
-document.querySelector("[data-sort]").addEventListener("click", sortitems);
+// Search for item
+searchInput.addEventListener('keyup', ()=>{
+  try{
+    if(!searchInput.value) displaySmoothies(smoothies)
+    let findItems = smoothies.filter( item=> {
+      return item.flavour.toLowerCase().includes(searchInput.value.toLowerCase())
+    })
+    if(findItems) {
+      displaySmoothies(findItems)
+    }else {
+      smoothiesWrapper.innerHTML = "Item was not found"
+    }
+  }catch(e){
+    smoothiesWrapper.innerHTML = "Please try again later"
+  }
+})
+
+// Sorting
+sortingBtn.addEventListener('click', ()=>{
+  try{
+    let sortedItems = smoothies.sort( (item1, item2)=> item1.price - item2.price )
+    displaySmoothies(sortedItems)
+  }catch(e) {
+    smoothiesWrapper.innerHTML = "Eish"
+  }
+})
+// let smoothiesWrapper = document.querySelector('[data-smoothies]');
+
+// function displayProducts(data) {
+//     try{
+//         smoothiesWrapper.innerHtml = "";
+//         if (data) {
+//             data.forEach((item) => {
+//                 smoothiesWrapper.innerHTML += `
+//                 <div class="card" style="width: 15rem; height:20rem;">
+//                     <img src="${item.url}" class="card-img-top" alt="${item.flavour}" >
+//                     <div class="card-body">
+//                         <h5 class="card-title">${item.flavour}</h5>
+//                         <p class="card-text">R${item.price}</p>
+//                         <button href="#" id="btncontact" class="btn btn-secondary" onclick='addToCart(${JSON.stringify(
+//                             item
+//                         )})'>Add to Cart</button>
+//                     </div>
+//                 </div>
+//                 `
+//           })
+//         }else {
+//             smoothiesWrapper.innerHtml = "Item not found";
+//         }
+//     }catch(e) {
+//         smoothiesWrapper.innerHtml = "Try again later";
+//     }
+// }
+// displayProducts(Smoothies);
+
+// let inputSearch = document.querySelector("[data-search]");
+
+// inputSearch.addEventListener("keyup", () => {
+//   try {
+//     if(!inputSearch.value) displayProducts(Smoothies)
+//     let itemFound = Smoothies.filter((item) => {
+//       return item.flavour
+//         .toLowerCase()
+//         .includes(inputSearch.value.toLowerCase());
+//     });
+//     displayProducts(itemFound);
+//     if (!itemFound) {
+//         smoothiesWrapper.innerHtml = "Product is not available";
+//     }
+    
+//   } catch (e) {
+//     smoothiesWrapper.innerHtml = "Please contact Pinda (admin), for assistance";
+//   }
+// });
+
+// function sortitems() {
+//   let sortedarray = Smoothies.sort((item1, item2) => {
+//     console.log(item1, item2);
+//     return item1.price - item2.price;
+//   });
+
+//   smoothiesWrapper.innerHTML = "";
+//   sortedarray.forEach((item) => {
+//     smoothiesWrapper.innerHTML += `
+//      <div class="card" style="width: 15rem; height:20rem;">
+//             <img src="${item.url}" class="card-img-top" alt="products" loading=lazy >
+//             <div class="card-body">
+//                 <h5 class="card-title">${item.flavour}</h5>
+//                 <p class="card-text">R${item.price}</p>
+//                 <button href="#" class="btn btn-secondary" onclick='addToCart(${JSON.stringify(
+//                   item
+//                 )})'>Add to Cart</button></div>`;
+//   });
+// }
+
+// document.querySelector("[data-sort]").addEventListener("click", sortitems);
 
 let cart = JSON.parse(localStorage.getItem("checkout")) || [];
 
@@ -131,3 +193,4 @@ function addToCart(item) {
 let totalamount= []
 
 
+// location.href = 'html/products.html'

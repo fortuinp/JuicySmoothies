@@ -9,7 +9,7 @@
     <title>Admin</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-secondary ">
+    <nav class="navbar navbar-expand-lg bg-body-secondary mb-5">
         <div class="container-fluid">
             <a class="navbar-brand" href="./index.html">
                 <img src="https://i.postimg.cc/qqPCZ2Td/download-6.jpg" alt="logo" loading="lazy" class="img-fluid img-thumbnail">
@@ -43,9 +43,28 @@
         </div>
       </nav>
     <main class="container-fluid vh-100" >
-        <section class="container vh-100" id="admin">
-            <h2></h2>
-        </section>    
+      <section class="container " id="admin">
+
+        <div class="row ms-1 gap-5">
+          <button id="btnadmin">Sort Products</button>
+          <button id="btnadmin">Add Products</button>
+        </div>
+         
+        <table class="table m-0 mx-1 mb-2 ">
+          <thead>
+            <tr>
+              
+              <th scope="col-8">Image</th>
+              <th scope="col-8">Flavour</th>
+              <th scope="col-8">Price</th>
+              <th scope="col-8"></th>
+              
+            </tr>
+          </thead>
+          <tbody id="data-table-admin"> 
+          </tbody>
+        </table>   
+      </section>    
     </main>
     <footer class="container-fluid" >
         <h3 id="Curryearr" data-footer> </h3>
