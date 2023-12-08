@@ -31,7 +31,25 @@ let checkeditem=JSON.parse(localStorage.getItem("checkout"))
     }
     document.querySelector('.clear').addEventListener('click',clearCart)
 
-    // function purchase() {
-    //   alert('Thank you for shopping with Juicy Smoothies') 
-    // }
-    // document.querySelector('.purchase').addEventListener('click',purchase)
+    let amountTotal=[]
+    let displaytotal=document.getElementById('totalAmount')
+    function calcTotal() {
+        if (cartproducts){
+            amountTotal=[]
+            for (let key in cartproducts){
+                let amount= eval(`${cartproducts[key][0].price}*${cartproducts[key].length}`)
+                amountTotal.push(amount)
+                console.log(amountTotal);
+            }
+            
+            let total= amountTotal.reduce((previousval,newvalue)=>previousval+newvalue,0)
+            displaytotal.textContent= "R"+total
+        }}
+        calcTotal()
+        
+        function clearCart() {
+            localStorage.removeItem("checkout")
+            checks.innerHTML=""
+            displaytotal.innerHTML=""
+        }
+        document.querySelector('.clear').addEventListener('click',clearCart)
