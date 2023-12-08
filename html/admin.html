@@ -1,79 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
-    <link rel="stylesheet" href="../css/style.css">
-    <title>Admin</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Admin</title>
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-secondary mb-5">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="./index.html">
-                <img src="https://i.postimg.cc/qqPCZ2Td/download-6.jpg" alt="logo" loading="lazy" class="img-fluid img-thumbnail">
-              </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./about.html">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./products.html">Treats</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./checkout.html">Checkout</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./admin.html">Admin</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./contact.html">Contact</a>
-              </li>
-              
-            </ul>
-          </div>
-        </div>
-      </nav>
-    <main class="container-fluid vh-100" >
-      <section class="container " id="admin">
+  <nav class="navbar navbar-expand-lg bg-body-secondary mb-5">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="./index.html">
+        <img src="https://i.postimg.cc/qqPCZ2Td/download-6.jpg" alt="logo" loading="lazy"
+          class="img-fluid img-thumbnail">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./products.html">Treats</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./checkout.html">Checkout</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./admin.html">Admin</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./contact.html">Contact</a>
+          </li>
 
-        <div class="row ms-1 gap-5">
-          <button id="btnadmin">Sort Products</button>
-          <button id="btnadmin">Add Products</button>
-        </div>
-         
-        <table class="table m-0 mx-1 mb-2 ">
-          <thead>
-            <tr>
-              
-              <th scope="col-8">Image</th>
-              <th scope="col-8">Flavour</th>
-              <th scope="col-8">Price</th>
-              <th scope="col-8"></th>
-              
-            </tr>
-          </thead>
-          <tbody id="data-table-admin"> 
-          </tbody>
-        </table>   
-      </section>    
-    </main>
-    <footer class="container-fluid" >
-        <h3 id="Curryearr" data-footer> </h3>
-    </footer>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <main class="container-fluid vh-100">
+    <section class="container " id="admin">
+
+      <div class="row ms-1 gap-5">
+        <button id="btnadmin">Sort Products</button>
+        <button id="btnadmin">Add Products</button>
+      </div>
+
+      <table class="table m-0 mx-1 mb-2 ">
+        <thead>
+          <tr>
+
+            <th scope="col-8">Image</th>
+            <th scope="col-8">Flavour</th>
+            <th scope="col-8">Price</th>
+            <th scope="col-8"></th>
+
+          </tr>
+        </thead>
+        <tbody id="data-table-admin">
+        </tbody>
+      </table>
+    </section>
+  </main>
+  <footer class="container-fluid">
+    <h3 id="Curryearr" data-footer> </h3>
+  </footer>
 
 
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <script src="../script/admin.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <script src="../script/admin.js"></script>
 
 </body>
+
 </html>

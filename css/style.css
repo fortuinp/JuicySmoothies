@@ -7,6 +7,10 @@
     margin:0;
     box-sizing: border-box;
 }
+.navbar a:is(:hover, :focus) {
+    text-decoration: underline;
+    scale: 1.2;
+    background: rgb(216, 216, 228);}
 body{
     background-color: rgb(216, 216, 228);
 }
@@ -14,10 +18,7 @@ img[alt="logo"]{
     width:5rem;
     height: 5rem;
   }
-  /* img[alt="products"]{
-    width: 5rem;
-    height: 5rem;
-  } */
+ 
   footer{
     background-color: #AA2222;
     color: white;
@@ -26,15 +27,7 @@ img[alt="logo"]{
     position: fixed;
     bottom: 0; 
   }
-  /* .imggg{
-    
-    background-image: url("https://i.postimg.cc/K8dh82Xf/61783418-l-1024x683.jpg");
-    background-repeat: no-repeat;
-    object-position: center;
-    background-size: contain;
-    height: 800px; 
- 
-  }*/
+
   span{
     display: block;
     color: #AA2222;
@@ -47,30 +40,9 @@ main{
     background-color:rgb(216, 216, 228);
 
 }
-/* #home{ */
-    /* background-color: rgb(216, 216, 228);
-    background-image: url("https://i.postimg.cc/nLRLG1zr/61783418-l-1024x683-removebg-preview.png");
-    background-repeat: no-repeat;
-    /* object-position: center;
-    object-fit: cover; */
-    /* background-size: contain;
-    aspect-ratio: 1/1;  */
-    /* font-family: 'Anton', sans-serif;
-    font-family: 'Anton', sans-serif;
-    font-size: 3rem;  */
 
-
-/* #home{
-background-image: url(https://i.postimg.cc/nLRLG1zr/61783418-l-1024x683-removebg-preview.png);
-background-repeat: no-repeat;
-aspect-ratio: 1/1;
-background-size:auto;
-} */
 
 #about{
-    /* background-color: rgb(216, 216, 228); */
-    /* margin-top: 300px; */
-
     color:#224952 ;
     font-family: 'Concert One', sans-serif;
     
@@ -105,11 +77,10 @@ h3{
 }
 #home{
     background:url('https://i.postimg.cc/nLRLG1zr/61783418-l-1024x683-removebg-preview.png' ) no-repeat;
-    /* You just have to change the value of background-size */
+  
     background-size: contain;
     background-position: center;
     
-    /* mix-blend-mode: luminosity; */
     font-family: 'Anton', sans-serif;
     font-family: 'Anton', sans-serif;
     font-size: 4rem; 
@@ -145,9 +116,7 @@ h3{
      margin-bottom: 10px; 
 
 }
-/* :is(#treats,#contact,#checkout,#products){
-    font-family: 'Concert One', sans-serif;
-} */
+
 #icon{
     
     color: #224952;
@@ -169,3 +138,13 @@ img[alt="${item.flavour}"]{
     width:2rem;
     height: 2rem;
   }
+
+  /* @media only screen and (min-width:300px)  {
+    #home{
+        font-size: 1rem;
+    }
+  }
+
+  @media only screen and (max-width:720px){
+
+  } */
